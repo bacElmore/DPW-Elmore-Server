@@ -37,19 +37,28 @@ app.get('/', (req,res) => {
 });
 
 app.get('/mongo', async (req,res) => {
+
+    await UpdateMongo();
+
+    res.send(Data);
+    console.log(Data);
+});
+
+
+//FUNCTIONS
+//query MongoDB
+var Data = "";
+let UpdateMongo = async () => {
     let Name = async () => {
         await client.connect();
         const collection = await client.db("testDPW").collection("testDPW_DB").find().toArray();
         return collection[0];
         client.close();
     };
-    var Data = "";
     await Name().then(function (value) {
         Data = value;
     });
-    res.send(Data);
-    console.log(Data);
-});
+};
 
 const serverPort = process.env.PORT;
 app.listen(serverPort, () => console.log(`Listening on Port ${serverPort}`));
