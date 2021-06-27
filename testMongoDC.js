@@ -1,4 +1,8 @@
 const { MongoClient } = require('mongodb');
+var bodyParser = require('body-parser');
+
+
+
 const uri = "mongodb+srv://bactran:elmore@cluster0.squez.mongodb.net/testDPW?retryWrites=true&w=majority";
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(async (err) =>  {
