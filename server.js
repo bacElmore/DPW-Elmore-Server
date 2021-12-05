@@ -21,7 +21,7 @@ const hbs = require('nodemailer-express-handlebars');
 
 //Root page
 app.get('/', (req,res) => {
-    res.json('Test: "Test"');
+    res.json('Test Elmore Server.');
 });
 
 const serverPort = process.env.PORT;
